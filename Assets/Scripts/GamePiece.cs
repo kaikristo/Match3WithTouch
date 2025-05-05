@@ -20,25 +20,20 @@ namespace Match3
             get => _y;
             set { if (IsMovable()) { _y = value; } }
         }
-    
-        private PieceType _type;
 
+        private PieceType _type;
         public PieceType Type => _type;
 
         private GameGrid _gameGrid;
-
         public GameGrid GameGridRef => _gameGrid;
 
         private MovablePiece _movableComponent;
-
         public MovablePiece MovableComponent => _movableComponent;
 
         private ColorPiece _colorComponent;
-
         public ColorPiece ColorComponent => _colorComponent;
 
         private ClearablePiece _clearableComponent;
-
         public ClearablePiece ClearableComponent => _clearableComponent;
 
         private void Awake()
@@ -56,16 +51,8 @@ namespace Match3
             _type = type;
         }
 
-        private void OnMouseEnter() => _gameGrid.EnterPiece(this);
-
-        private void OnMouseDown() => _gameGrid.PressPiece(this);
-
-        private void OnMouseUp() => _gameGrid.ReleasePiece();
-
         public bool IsMovable() => _movableComponent != null;
-
         public bool IsColored() => _colorComponent != null;
-
         public bool IsClearable() => _clearableComponent != null;
     }
 }
